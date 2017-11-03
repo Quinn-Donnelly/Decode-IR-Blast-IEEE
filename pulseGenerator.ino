@@ -33,26 +33,29 @@ void setup()
 {
   pinMode(LED, OUTPUT);
   digitalWrite(LED, LOW);
+  Serial.begin(9600);
 }
 
 void loop()
 {
   // Message to be output
-  const bool message[] = {0,0,0};
+  const bool message[] = {1,1,1};
 
+  Serial.println("Begining Message Transmittion");
   beginMessage();
   for(int i = 0; i < 3; ++i)
   {
     (message[i]) ? outputOnePulse() : outputZeroPulse();
   }
-
   outputEndPulse();
+  
+  Serial.println("Message has been sent");
   delay(5000);
 }
 
 //============================= Function Definitions ==============================
 void outputZeroPulse()
-{
+{    
   digitalWrite(LED, HIGH);
   delayMicroseconds(PULSE_TIME);
   digitalWrite(LED, LOW);
