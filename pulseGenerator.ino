@@ -39,7 +39,7 @@ void setup()
 void loop()
 {
   // Message to be output
-  const bool message[] = {1,1,1};
+  const bool message[] = {1,0 ,0};
 
   Serial.println("Begining Message Transmittion");
   beginMessage();
